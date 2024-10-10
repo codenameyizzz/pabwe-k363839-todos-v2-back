@@ -43,8 +43,7 @@ function App() {
             <ul className="nav nav-pills mb-3">
               <li className="nav-item w-50 text-center">
                 <Link
-                  className={`nav-link
-${activeLogin} btl`}
+                  className={`nav-link ${activeLogin} btl`}
                   to="/"
                 >
                   Login
@@ -52,8 +51,7 @@ ${activeLogin} btl`}
               </li>
               <li className="nav-item w-50 text-center">
                 <Link
-                  className={`nav-link
-${activeRegister} btl`}
+                  className={`nav-link ${activeRegister} btl`}
                   to="/register"
                 >
                   Register
