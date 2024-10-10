@@ -1,29 +1,24 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-
 function TodoInput({ onAddTodo }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   function handleOnAddTodo(e) {
     e.preventDefault(); // Mencegah refresh halaman
     if (title.trim() && description.trim()) {
       onAddTodo({ title, description });
     }
   }
-
   function handleTitle({ target }) {
     if (target.value.length <= 50) {
       setTitle(target.value);
     }
   }
-
   function handleDescription({ target }) {
     if (target.value.length <= 1000) {
       setDescription(target.value);
     }
   }
-
   return (
     <div className="card">
       <div className="card-body">
@@ -31,7 +26,7 @@ function TodoInput({ onAddTodo }) {
         <hr />
         <form onSubmit={handleOnAddTodo}>
           <div className="mb-3">
-            <label htmlFor="inputTitle" className="formlabel">
+            <label htmlFor="inputTitle" className="form-label">
               Judul
             </label>
             <div className="input-group">
@@ -47,7 +42,7 @@ function TodoInput({ onAddTodo }) {
             </div>
           </div>
           <div>
-            <label htmlFor="inputBody" className="formlabel">
+            <label htmlFor="inputBody" className="form-label">
               Deskripsi
             </label>
             <textarea
@@ -62,7 +57,7 @@ function TodoInput({ onAddTodo }) {
             </div>
           </div>
           <div className="mb-4 text-end mt-3">
-            <button type="submit" className="btn btnprimary">
+            <button type="submit" className="btn btn-primary">
               Simpan
             </button>
           </div>
@@ -71,9 +66,7 @@ function TodoInput({ onAddTodo }) {
     </div>
   );
 }
-
 TodoInput.propTypes = {
   onAddTodo: PropTypes.func.isRequired,
 };
-
 export default TodoInput;

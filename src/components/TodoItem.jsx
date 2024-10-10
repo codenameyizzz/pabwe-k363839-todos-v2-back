@@ -5,6 +5,7 @@ import { FaClock, FaTrash } from "react-icons/fa6";
 
 function TodoItem({ todo, onDeleteTodo }) {
   let badgeStatus, badgeLabel;
+
   if (todo.is_finished) {
     badgeStatus = "badge bg-success text-white ms-3";
     badgeLabel = "Selesai";
@@ -34,7 +35,7 @@ function TodoItem({ todo, onDeleteTodo }) {
                 // eslint-disable-next-line no-undef
                 Swal.fire({
                   title: "Hapus Todo",
-                  text: `Apakah kamu yakin ingin mehapus todo: ${todo.title}?`,
+                  text: `Apakah kamu yakin ingin menghapus todo: ${todo.title}?`,
                   icon: "warning",
                   showCancelButton: true,
                   confirmButtonText: "Ya, Tetap Hapus",
@@ -64,7 +65,7 @@ function TodoItem({ todo, onDeleteTodo }) {
       </div>
     </div>
   );
-}
+}1
 
 const todoItemShape = {
   id: PropTypes.number.isRequired,
@@ -82,5 +83,4 @@ TodoItem.propTypes = {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export { todoItemShape };
-
 export default TodoItem;

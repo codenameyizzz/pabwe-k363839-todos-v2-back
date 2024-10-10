@@ -6,19 +6,16 @@ import {
   asyncDeleteTodo,
   deleteTodoActionCreator,
 } from "../states/todos/action";
-
 function HomePage() {
   const { todos = [], isDeleteTodo = false } = useSelector((states) => states);
-
   const queryParams = new URLSearchParams(location.search);
   const is_finished = queryParams.get("is_finished") || "";
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (isDeleteTodo) {
       // eslint-disable-next-line no-undef
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Todo berhasil dihapus!",
         showConfirmButton: false,
@@ -31,7 +28,6 @@ function HomePage() {
   const onDeleteTodo = (id) => {
     dispatch(asyncDeleteTodo(id));
   };
-
   return (
     <section>
       <div className="container pt-1">
@@ -40,5 +36,4 @@ function HomePage() {
     </section>
   );
 }
-
 export default HomePage;

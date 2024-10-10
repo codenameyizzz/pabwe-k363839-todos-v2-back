@@ -5,14 +5,11 @@ import {
   asyncSetIsUserChangePhoto,
   setIsUserChangePhotoActionCreator,
 } from "../states/isUserChangePhoto/action";
-
 function ProfilePage() {
   const dispatch = useDispatch();
-
   const { authLogin, isUserChangePhoto = false } = useSelector(
     (states) => states
   );
-
   useEffect(() => {
     if (isUserChangePhoto) {
       // eslint-disable-next-line no-undef
@@ -26,11 +23,9 @@ function ProfilePage() {
       dispatch(setIsUserChangePhotoActionCreator(false));
     }
   }, [isUserChangePhoto, dispatch]);
-
   const onUserChangePhoto = ({ photoFile }) => {
     dispatch(asyncSetIsUserChangePhoto({ photoFile }));
   };
-
   return (
     <section>
       <div className="container pt-1">
@@ -42,5 +37,4 @@ function ProfilePage() {
     </section>
   );
 }
-
 export default ProfilePage;

@@ -9,6 +9,9 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProfilePage from "./pages/ProfilePage";
+import TodoAddPage from "./pages/TodoAddPage";
+import TodoDetailPage from "./pages/TodoDetailPage";
 function App() {
   const { authLogin = null, isPreload = false } = useSelector(
     (states) => states
@@ -38,7 +41,7 @@ function App() {
               <h2>Forum App</h2>
             </div>
             <ul className="nav nav-pills mb-3">
-              <li className="nav-item w-50 textcenter">
+              <li className="nav-item w-50 text-center">
                 <Link
                   className={`nav-link
 ${activeLogin} btl`}
@@ -47,7 +50,7 @@ ${activeLogin} btl`}
                   Login
                 </Link>
               </li>
-              <li className="nav-item w-50 textcenter">
+              <li className="nav-item w-50 text-center">
                 <Link
                   className={`nav-link
 ${activeRegister} btl`}
@@ -77,6 +80,9 @@ ${activeRegister} btl`}
           <Routes>
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/users/me" element={<ProfilePage />} />
+            <Route path="/todos/:id" element={<TodoDetailPage />} />
+            <Route path="/todos/add" element={<TodoAddPage />} />
           </Routes>
         </main>
       </div>
